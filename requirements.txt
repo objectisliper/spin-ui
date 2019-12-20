@@ -1,0 +1,13 @@
+Django==2.2.9
+django-mysql==3.3.0
+djangorestframework==3.11.0
+mysql-connector-python==8.0.18
+mysqlclient==1.4.6
+pkg-resources==0.0.0
+protobuf==3.11.1
+PyQRCode==1.2.1
+pytz==2019.3
+six==1.13.0
+sqlparse==0.3.0
+django-environ==0.4.5
+django-cors-headers==3.2.0
