@@ -1,9 +1,10 @@
+import base64
 import os
 
 from django.contrib.auth.models import User
 from django.db import models
-from django.utils.baseconv import base64
 from fernet import Fernet
+from simplecrypt import encrypt, decrypt
 
 
 class EncryptedText(models.TextField):
@@ -23,8 +24,8 @@ class EncryptedText(models.TextField):
             raise ValueError('No ENCRYPT_KEY environment variable found!')
         if self.__key and value:
             value = base64.b64decode(value)
-            f = Fernet(self.__key)
-            value = f.decrypt(value)
+            value = decrypt(self.__key, value)
+            value = value.decode("utf-8")
         return value
 
     def to_python(self, value):
@@ -36,8 +37,7 @@ class EncryptedText(models.TextField):
             raise ValueError('No ENCRYPT_KEY environment variable found!')
         if value:
             if self.__key:
-                f = Fernet(self.__key)
-                value = f.encrypt(value.encode())
+                value = encrypt(self.__key, value)
                 value = base64.b64encode(value).decode('utf-8')
         return value
 

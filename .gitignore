@@ -1,2 +1,4 @@
 /spin/.env
 /spin/apps/storage/migrations/
+venv
+.idea
