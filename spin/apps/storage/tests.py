@@ -10,10 +10,12 @@ from spin.apps.storage.models import EncryptedUserData
 class EncryptedUserDataModelTestCase(TestCase):
 
     user_name = 'Name for test user'
-    encrypt_key = 'test123'
+    encrypt_private_key = 'test123'
+    encrypt_public_key = 'test_public'
 
     def test_encryption(self):
-        os.environ['ENCRYPT_KEY'] = self.encrypt_key
+        os.environ['PRIVATE_ENCRYPT_KEY'] = self.encrypt_private_key
+        os.environ['PUBLIC_ENCRYPT_KEY'] = self.encrypt_public_key
         created_user = create_one(User, commit=False)
         created_user.save()
         EncryptedUserData(name=self.user_name, user=created_user).save()

@@ -19,12 +19,13 @@ class EncryptedText(models.TextField):
         return name, key, args, kwargs
 
     def from_db_value(self, value, expression, connection):
-        self.__key = os.environ.get('ENCRYPT_KEY', None)
-        if self.__key is None:
+        __key_private = os.environ.get('PRIVATE_ENCRYPT_KEY', None)
+        __key_public = os.environ.get('PUBLIC_ENCRYPT_KEY', None)
+        if __key_private is None:
             raise ValueError('No ENCRYPT_KEY environment variable found!')
-        if self.__key and value:
+        if __key_private and value:
             value = base64.b64decode(value)
-            value = decrypt(self.__key, value)
+            value = decrypt(__key_private, value)
             value = value.decode("utf-8")
         return value
 
@@ -32,13 +33,18 @@ class EncryptedText(models.TextField):
         return value
 
     def get_db_prep_value(self, value, connection, prepared=False):
-        self.__key = os.environ.get('ENCRYPT_KEY', None)
-        if self.__key is None:
+        __key_private = os.environ.get('PRIVATE_ENCRYPT_KEY', None)
+        __key_public = os.environ.get('PUBLIC_ENCRYPT_KEY', None)
+        if __key_private is None:
             raise ValueError('No ENCRYPT_KEY environment variable found!')
         if value:
-            if self.__key:
-                value = encrypt(self.__key, value)
+            if __key_private:
+                value = encrypt(__key_private, value)
                 value = base64.b64encode(value).decode('utf-8')
+            if __key_public is not None:
+                public_value = encrypt(__key_public, value)
+                public_value = base64.b64encode(public_value).decode('utf-8')
+                value += f'[split_keys]{public_value}'
         return value
 
 
