@@ -54,3 +54,14 @@ pip install gunicorn
 ```
 python3 manage.py collectstatic
 ```
+
+## Nativescript
+Before building, replace content of spin-ui/platforms/android/gradle/wrapper/gradle-wrapper.properties with:
+```
+#Mon Aug 26 10:52:45 EEST 2019
+distributionBase=GRADLE_USER_HOME
+distributionPath=wrapper/dists
+zipStoreBase=GRADLE_USER_HOME
+zipStorePath=wrapper/dists
+distributionUrl=https\://services.gradle.org/distributions/gradle-6.0.1-all.zip
+```
