@@ -6,12 +6,12 @@
     "defaultCollection": "@nativescript/schematics"
   },
   "projects": {
-    "spin-ui": {
+    "hello-world": {
       "root": "",
-      "sourceRoot": ".",
+      "sourceRoot": "src",
       "projectType": "application",
-      "prefix": "app"
+      "prefix": "ns"
     }
   },
-  "defaultProject": "spin-ui"
+  "defaultProject": "hello-world"
 }
