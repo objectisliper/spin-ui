@@ -16,3 +16,7 @@ pytz==2019.3
 simple-crypt==4.1.7
 six==1.13.0
 sqlparse==0.3.0
+djangorestframework-simplejwt==4.4.0
+PyJWT==1.7.1
+django-split-settings==0.3.0
+celery==4.3

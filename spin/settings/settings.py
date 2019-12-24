@@ -43,6 +43,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'spin.apps.storage',
+    'spin.apps.authentication',
+    'spin.apps.worker',
+    'rest_framework',
+
+
 ]
 
 MIDDLEWARE = [
