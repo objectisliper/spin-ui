@@ -2,3 +2,4 @@
 /spin/apps/storage/migrations/
 venv
 .idea
+/spin/settings/local_settings.py
