@@ -1,6 +1,5 @@
 from datetime import timedelta
-
-from spin.settings.settings import SECRET_KEY
+from spin.settings.common import SECRET_KEY
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
