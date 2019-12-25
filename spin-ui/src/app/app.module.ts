@@ -1,5 +1,9 @@
 import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
+import { NativeScriptUIListViewModule } from "nativescript-ui-listview/angular";
+import { NativeScriptFormsModule } from "nativescript-angular/forms";
+import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
 import { NativeScriptModule } from "nativescript-angular/nativescript.module";
+import { NativeScriptRouterModule } from "nativescript-angular/router";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -20,6 +24,9 @@ import {reducers} from "~/app/root-store/reducers";
     imports: [
         NativeScriptModule,
         AppRoutingModule,
+        NativeScriptFormsModule,
+        NativeScriptHttpClientModule,
+        NativeScriptUIListViewModule,
         EffectsModule.forRoot([]),
         StoreModule.forRoot(reducers),
     ],
