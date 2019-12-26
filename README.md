@@ -65,3 +65,14 @@ zipStoreBase=GRADLE_USER_HOME
 zipStorePath=wrapper/dists
 distributionUrl=https\://services.gradle.org/distributions/gradle-6.0.1-all.zip
 ```
+
+### For dev debugging with dev env via usb use
+```
+tns run android --bundle
+```
+
+### For dev debugging with prod env via usb use
+
+```
+tns run android --bundle --env.environment="prod"
+```

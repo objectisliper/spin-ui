@@ -1,0 +1,6 @@
+<Button text="Create new" class="btn btn-primary" (tap)="createNewInstance()"></Button>
+<RadListView [items]="users | async">
+    <ng-template let-user="item">
+        <Label [text]="user.name" class="p-15"></Label>
+    </ng-template>
+</RadListView>
