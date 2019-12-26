@@ -1,14 +1,17 @@
 import base64
 import os
-
-from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser, User
 from django.db import models
+from django.db.models import TextField
+from django.dispatch import receiver
 from fernet import Fernet
 from simplecrypt import encrypt, decrypt
 
+from spin.apps.authentication.models import BunchOfKeys
+from spin.apps.authentication.utils import generator_hash
+
 
 class EncryptedText(models.TextField):
-
     description = "An encrypted text field for storing sensitive information"
 
     def __init__(self, *args, **kwargs):
@@ -67,8 +70,9 @@ class TimeStampedModel(models.Model):
 
 
 class EncryptedUserData(models.Model):
-    name = EncryptedText(null=False)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    name = models.TextField(null=True)
+    encrypted_data = TextField(null=True)
+    client_hash = models.TextField()
 
-    def __str__(self):
-        return f'User-{self.user} encrypted data'
+    # def __str__(self):
+    #     return f'User-{self.user} encrypted data'
