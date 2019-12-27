@@ -30,9 +30,20 @@ class EncryptedUserDataSerializer(serializers.ModelSerializer):
 
 
 class CreateClientSerializer(serializers.ModelSerializer):
+    shared = serializers.BooleanField()
+    email = serializers.CharField()
+    password = serializers.CharField()
 
     class Meta:
         model = AnonymousUser
         fields = 'shared', 'email', 'password',
 
+    def create(self, validated_data):
+        client_hash = generator_hash()
+        AnonymousUser.objects.create(shared=validated_data.get('shared'),
+                                     email=validated_data.get('email'),
+                                     password=make_password(validated_data.get('password')),
+                                     client_hash=client_hash
+                                     )
+        EncryptedUserData.objects.create(client_hash=client_hash)
 
