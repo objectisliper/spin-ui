@@ -4,7 +4,7 @@ from autofixture import create, create_one
 from django.contrib.auth.models import User
 from django.test import TestCase
 
-from spin.apps.storage.models import EncryptedUserData
+from .models import EncryptedUserData
 
 
 class EncryptedUserDataModelTestCase(TestCase):

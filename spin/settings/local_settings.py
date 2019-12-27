@@ -20,3 +20,4 @@ DATABASES = {
         'PASSWORD': 'root',
 }
 }
+IS_LOCAL = True
