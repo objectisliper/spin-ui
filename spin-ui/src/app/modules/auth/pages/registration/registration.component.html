@@ -1,6 +1,14 @@
-<Button text="Create new" class="btn btn-primary" (tap)="createNewInstance()"></Button>
-<RadListView [items]="users | async">
-    <ng-template let-user="item">
-        <Label [text]="user.name" class="p-15"></Label>
-    </ng-template>
-</RadListView>
+<spin-header></spin-header>
+<ScrollView orientation="horizontal">
+    <GridLayout rows="auto, *">
+        <StackLayout row="0" class="registration-header">
+            <Label text="Registration" class="registration-header-title"></Label>
+            <Label text="Login data" class="registration-header-description"></Label>
+        </StackLayout>
+        <StackLayout row="1" padding="24">
+            <MDTextField  helper="example helper" placeholderColor="#2A2B2E" keyboardType="datetime" backgroundColor="white" floatingColor="#AEA3C0"
+                          hint="i am an hint" returnKeyType="next" (focus)="onFocus($event)" (blur)="onBlur($event)" strokeColor="#9158F3"
+                          (textChange)="onTextChange($event)"></MDTextField>
+        </StackLayout>
+    </GridLayout>
+</ScrollView>

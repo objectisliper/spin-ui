@@ -1,0 +1,52 @@
+/* Add mobile styles for the component here.  */
+
+.spin-header {
+    font-style: normal;
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: #2A2B2E;
+}
+
+.menu-button-container {
+    width: 50;
+    height: 50;
+    padding: 14 4;
+    margin-left: 16;
+}
+
+.menu-button {
+    width: 100%;
+    height: 100%;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.menu-button-top-border {
+    height: 7dp;
+    width: 100%;
+    background-color: #2A2B2E;
+    horizontal-align: left;
+    margin-bottom: 2dp;
+}
+
+.menu-button-bottom-border {
+    height: 7;
+    width: 100%;
+    background-color: #2A2B2E;
+    horizontal-align: left;
+    margin-top: 2dp;
+}
+
+.menu-button.active .menu-button-bottom-border{
+    animation-name: toggle;
+    animation-duration: 0.3;
+    width: 50%;
+}
+
+@keyframes toggle {
+    from { transform: scale(2, 1); }
+    to { transform: scale(1, 1); }
+}

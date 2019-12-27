@@ -1,9 +1,8 @@
 import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
 import { NativeScriptUIListViewModule } from "nativescript-ui-listview/angular";
-import { NativeScriptFormsModule } from "nativescript-angular/forms";
-import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
-import { NativeScriptModule } from "nativescript-angular/nativescript.module";
-import { NativeScriptRouterModule } from "nativescript-angular/router";
+import { NativeScriptFormsModule } from "@nativescript/angular/forms";
+import { NativeScriptHttpClientModule } from "@nativescript/angular/http-client";
+import { NativeScriptModule } from "@nativescript/angular/nativescript.module";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -18,12 +17,6 @@ import {
 } from "~/app/root-store/app.tokens";
 import {StorageService} from "~/app/shared/services/storage.service";
 import {storageMetaReducer} from "~/app/root-store/meta-redusers/store-metareducer";
-
-// Uncomment and add to NgModule imports if you need to use two-way binding
-// import { NativeScriptFormsModule } from "nativescript-angular/forms";
-
-// Uncomment and add to NgModule imports if you need to use the HttpClient wrapper
-// import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
 
 export function getRootStoreConfig(saveKeys: string[],
                                     localStorageKey: string,

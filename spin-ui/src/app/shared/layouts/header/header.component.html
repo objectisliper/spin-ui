@@ -1,0 +1,17 @@
+<ActionBar>
+<!--    <NavigationButton icon="res://icmenu" *ifAndroid-->
+<!--                      (loaded)="navigationButtonLoaded($event)">-->
+
+<!--    </NavigationButton>-->
+<!--    <ActionItem icon="res://icmenu" ios.position="left" *ifIos></ActionItem>-->
+    <GridLayout columns="50, *, 50">
+        <!--Add your page content here-->
+        <StackLayout col="0" class="menu-button-container" (tap)="toggleSideMenu()">
+            <GridLayout [class.active]="menuOpened" class="menu-button" rows="auto, *, auto">
+                <StackLayout class="menu-button-top-border" row="0"></StackLayout>
+                <StackLayout class="menu-button-bottom-border" row="1"></StackLayout>
+            </GridLayout>
+        </StackLayout>
+        <Label col="1" textWrap="true" text="Spin" class="montserrat-font spin-header"></Label>
+    </GridLayout>
+</ActionBar>

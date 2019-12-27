@@ -1,1 +1,25 @@
 /* Add mobile styles for the component here.  */
+
+.registration-header {
+    padding: 50dp 40dp;
+    background: linear-gradient(90deg, #9158F3 0%, #ED63B4 100%);
+}
+
+.registration-header-title, .registration-header-description {
+    text-transform: uppercase;
+    color: white;
+}
+
+.registration-header-title {
+    font-style: normal;
+    font-weight: 800;
+    font-size: 49dp;
+    line-height: 58dp;
+}
+
+.registration-header-description {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20dp;
+    line-height: 25dp;
+}
