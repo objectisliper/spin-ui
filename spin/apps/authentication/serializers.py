@@ -43,7 +43,9 @@ class CreateClientSerializer(serializers.ModelSerializer):
         AnonymousUser.objects.create(shared=validated_data.get('shared'),
                                      email=validated_data.get('email'),
                                      password=make_password(validated_data.get('password')),
-                                     client_hash=client_hash
+                                     client_hash=client_hash,
+                                     username=generator_hash()
                                      )
         EncryptedUserData.objects.create(client_hash=client_hash)
+        return client_hash
 

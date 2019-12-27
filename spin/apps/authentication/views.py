@@ -20,7 +20,7 @@ class EncryptedUserDataApiView(APIView):
                                            context=user_hash)
         serializer.is_valid(raise_exception=True)
         serializer.create(serializer.data)
-        return Response(status=status.HTTP_200_OK)
+        return Response(data=serializer.data, status=status.HTTP_200_OK)
 
 
 class CreateClientAPIView(APIView):
@@ -32,4 +32,4 @@ class CreateClientAPIView(APIView):
         serializer = self.serializer_class(data=request.data)
         serializer.is_valid(raise_exception=False)
         serializer.create(serializer.data)
-        return Response(status=status.HTTP_200_OK)
+        return Response(serializer.data, status=status.HTTP_200_OK)
