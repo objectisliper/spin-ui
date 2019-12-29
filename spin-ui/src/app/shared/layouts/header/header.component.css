@@ -50,3 +50,8 @@
     from { transform: scale(2, 1); }
     to { transform: scale(1, 1); }
 }
+
+button {
+    font-size: 15;
+    horizontal-align: center;
+}

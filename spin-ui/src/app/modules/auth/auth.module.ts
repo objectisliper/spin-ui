@@ -9,11 +9,14 @@ import {HeaderComponent} from "~/app/shared/layouts/header/header.component";
 import {SharedLayoutsModule} from "~/app/shared/layouts/shared-layouts.module";
 import {NativeScriptFormsModule} from "@nativescript/angular/forms";
 import { NativeScriptMaterialTextFieldModule } from 'nativescript-material-textfield/angular';
+import {ReactiveFormsModule} from "@angular/forms";
+import { UserPhotoComponent } from './pages/user-photo/user-photo.component';
 
 
 @NgModule({
   declarations: [
-      RegistrationComponent
+      RegistrationComponent,
+      UserPhotoComponent
   ],
     imports: [
         AuthRoutingModule,
@@ -21,7 +24,8 @@ import { NativeScriptMaterialTextFieldModule } from 'nativescript-material-textf
         NativeScriptFormsModule,
         NativeScriptUIListViewModule,
         SharedLayoutsModule,
-        NativeScriptMaterialTextFieldModule
+        NativeScriptMaterialTextFieldModule,
+        ReactiveFormsModule,
     ],
   schemas: [NO_ERRORS_SCHEMA]
 })

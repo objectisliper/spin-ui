@@ -17,6 +17,7 @@ import {
 } from "~/app/root-store/app.tokens";
 import {StorageService} from "~/app/shared/services/storage.service";
 import {storageMetaReducer} from "~/app/root-store/meta-redusers/store-metareducer";
+import {NativeScriptUISideDrawerModule} from "nativescript-ui-sidedrawer/angular";
 
 export function getRootStoreConfig(saveKeys: string[],
                                     localStorageKey: string,
@@ -38,6 +39,7 @@ export function getRootStoreConfig(saveKeys: string[],
         NativeScriptUIListViewModule,
         EffectsModule.forRoot([]),
         StoreModule.forRoot(reducers),
+        NativeScriptUISideDrawerModule,
     ],
     declarations: [
         AppComponent,
