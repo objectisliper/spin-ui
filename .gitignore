@@ -1,5 +1,10 @@
 /spin/.env
 /spin/apps/storage/migrations/
+/spin/apps/authentication/migrations/
+/spin/apps/worker/migrations/
 venv
 .idea
 /spin/settings/local_settings.py
+/logs/authentication.log
+/logs/storage.log
+/logs/worker.log
