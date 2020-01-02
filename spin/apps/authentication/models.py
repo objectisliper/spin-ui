@@ -15,8 +15,7 @@ class AnonymousUser(AbstractUser):
     client_hash = models.CharField(max_length=128, unique=True)
     keys_swapped = models.BooleanField(default=False)
     shared = models.BooleanField(default=False)
-    email = models.CharField(max_length=100, default='spin-project@info.com')
-    username = None
+    # username = None
     email = models.EmailField(_('email address'), unique=True)
 
     USERNAME_FIELD = 'email'
