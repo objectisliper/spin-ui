@@ -1,14 +1,9 @@
 import base64
 import os
-from django.contrib.auth.models import AbstractUser, User
+
 from django.db import models
 from django.db.models import TextField
-from django.dispatch import receiver
-from fernet import Fernet
 from simplecrypt import encrypt, decrypt
-
-from spin.apps.authentication.models import BunchOfKeys
-from spin.apps.authentication.utils import generator_hash
 
 
 class EncryptedText(models.TextField):
