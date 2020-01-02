@@ -17,5 +17,4 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('swap_keys', EncryptedUserDataApiView.as_view(), name='swap_keys'),
     path('client_create', CreateClientAPIView.as_view(), name='client_create'),
-
 ]
