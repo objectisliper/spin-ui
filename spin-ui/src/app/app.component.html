@@ -1,2 +1,22 @@
 <!-- https://docs.nativescript.org/angular/core-concepts/angular-navigation.html#page-router-outlet -->
-<page-router-outlet></page-router-outlet>
+<RadSideDrawer>
+    <GridLayout tkDrawerContent rows="56, *" class="sideStackLayout p-t-20">
+        <StackLayout class="sideTitleStackLayout">
+            <Label text="Navigation Menu"></Label>
+        </StackLayout>
+        <ScrollView row="1">
+            <StackLayout class="sideStackLayout">
+                <Label text="Primary" class="sideLabel sideLightGrayLabel"></Label>
+                <Label text="Social" class="sideLabel"></Label>
+                <Label text="Promotions" class="sideLabel"></Label>
+                <Label text="Labels" class="sideLabel sideLightGrayLabel"></Label>
+                <Label text="Important" class="sideLabel"></Label>
+                <Label text="Starred" class="sideLabel"></Label>
+                <Label text="Sent Mail" class="sideLabel"></Label>
+                <Label text="Drafts" class="sideLabel"></Label>
+                <Label text="Close Drawer" color="lightgray" padding="10" style="horizontal-align: center" (tap)="onCloseDrawerTap()"></Label>
+            </StackLayout>
+        </ScrollView>
+    </GridLayout>
+    <page-router-outlet tkMainContent></page-router-outlet>
+</RadSideDrawer>

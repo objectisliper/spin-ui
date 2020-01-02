@@ -1,1 +1,54 @@
 /* Add mobile styles for the component here.  */
+
+.registration-header {
+    padding: 50dp 40dp;
+    background: linear-gradient(90deg, #9158F3 0%, #ED63B4 100%);
+}
+
+.registration-header-title, .registration-header-description {
+    text-transform: uppercase;
+    color: white;
+}
+
+.registration-header-title {
+    font-style: normal;
+    font-weight: 800;
+    font-size: 49dp;
+    line-height: 58dp;
+}
+
+.registration-header-description {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20dp;
+    line-height: 25dp;
+}
+
+.password-icon {
+    margin-left: -20dp;
+    font-size: 18;
+}
+
+MDTextField {
+    padding-left: 0;
+    color: #2A2B2E;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.form-block {
+    margin-top: 40;
+}
+
+.registration-attention-block Label.fas {
+    color: red;
+    font-size: 18;
+}
+
+.registration-attention-block TextView {
+    margin-top: 0;
+    padding-top: 0;
+    font-size: 12;
+    border-bottom-width: 0;
+}

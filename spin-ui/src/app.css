@@ -6,7 +6,7 @@ selectors and properties you can use to style UI components.
 
 /*
 In many cases you may want to use the NativeScript core theme instead
-of writing your own CSS rules. You can learn more about the 
+of writing your own CSS rules. You can learn more about the
 NativeScript core theme at https://github.com/nativescript/theme
 The imported CSS rules must precede all other types of rules.
 */
@@ -23,3 +23,62 @@ The following CSS rule changes the font size of all Buttons that have the
 Button.-primary {
     font-size: 18;
 }
+
+.montserrat-font {
+    font-family: "Montserrat", "Montserrat-Medium";
+}
+
+.far {
+    font-family: "Font Awesome 5 Pro", "fa-regular-400";
+    font-weight: 400;
+}
+
+.fas {
+    font-family: "Font Awesome 5 Pro", "fa-solid-900";
+    font-weight: 900;
+}
+
+.spin-icon {
+    font-family: "spin-icon", "spin-icon";
+    font-weight: 400;
+}
+
+.spin-button {
+    font-family: "Montserrat", "Montserrat-Bold";
+    width: 100%;
+    background: #9158F3;
+    font-weight: bold;
+    font-size: 14;
+    line-height: 17;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    border-radius: 0 28 28 28;
+    height: 60;
+}
+
+.spin-button.disabled {
+    background: #EBE6F3;
+}
+
+
+RadSideDrawer .drawerContentText {
+    font-size: 13;
+    padding: 10;
+}
+
+RadSideDrawer .drawerContentButton {
+    margin: 10;
+    horizontal-align: left;
+}
+
+
+
+.sideTitleStackLayout {
+    text-align: center;
+    vertical-align: center;
+}
+
+.sideLabel {
+    padding: 10;
+}
+
