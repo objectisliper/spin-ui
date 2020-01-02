@@ -4,7 +4,7 @@
         <Label text="Registration" class="registration-header-title"></Label>
         <Label text="Login data" class="registration-header-description"></Label>
     </StackLayout>
-    <StackLayout row="1" padding="24" class="form" [formGroup]="registrationForm">
+    <StackLayout row="1" padding="24" class="form" [formGroup]="registrationForm" [connectForm]="form$ | async">
         <GridLayout rows="auto, auto, auto">
             <GridLayout columns="*, auto" row="0" class="p-x-10 m-t-30">
                 <StackLayout column="0">

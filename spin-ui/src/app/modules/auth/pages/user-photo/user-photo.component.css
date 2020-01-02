@@ -1,1 +1,38 @@
 /* Add mobile styles for the component here.  */
+
+.registration-header {
+    height: 50%;
+}
+
+.add-photo-container {
+    margin-top: -140;
+    width: 280;
+    height: 280;
+    background-color: #EBE6F3;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.add-photo-button {
+    width: 90;
+    height: 90;
+    border-radius: 90;
+    background: #9158F3;
+    vertical-align: center;
+}
+
+.add-photo-button Label {
+    font-size: 40;
+    color: white;
+    font-weight: 300;
+
+    text-align: center;
+}
+
+.add-photo-description {
+    color: #AEA3C0;
+    font-size: 12;
+    line-height: 15;
+    margin-top: 15;
+}

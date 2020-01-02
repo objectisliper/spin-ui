@@ -1,20 +1,39 @@
 <!-- https://docs.nativescript.org/angular/core-concepts/angular-navigation.html#page-router-outlet -->
-<RadSideDrawer>
-    <GridLayout tkDrawerContent rows="56, *" class="sideStackLayout p-t-20">
-        <StackLayout class="sideTitleStackLayout">
-            <Label text="Navigation Menu"></Label>
+<RadSideDrawer (drawerClosing)="setIsSideDrawerOpenState(false)">
+    <GridLayout tkDrawerContent rows="50, *" class="sideStackLayout p-t-20">
+        <StackLayout class="sideTitleStackLayout" (tap)="onCloseDrawerTap()">
+            <Label text="C" class="spin-icon text-left side-drawer-close-icon p-y-15 p-l-20"></Label>
         </StackLayout>
-        <ScrollView row="1">
+        <ScrollView row="1" class="p-l-20">
             <StackLayout class="sideStackLayout">
-                <Label text="Primary" class="sideLabel sideLightGrayLabel"></Label>
-                <Label text="Social" class="sideLabel"></Label>
-                <Label text="Promotions" class="sideLabel"></Label>
-                <Label text="Labels" class="sideLabel sideLightGrayLabel"></Label>
-                <Label text="Important" class="sideLabel"></Label>
-                <Label text="Starred" class="sideLabel"></Label>
-                <Label text="Sent Mail" class="sideLabel"></Label>
-                <Label text="Drafts" class="sideLabel"></Label>
-                <Label text="Close Drawer" color="lightgray" padding="10" style="horizontal-align: center" (tap)="onCloseDrawerTap()"></Label>
+                <FlexboxLayout class="navigation-point" (tap)="navigateTo('auth/user-photo')">
+                    <Label text="H" class="spin-icon m-r-20 f-s-24" style="color: #AEA3C0;"></Label>
+                    <Label text="QR Scanner" class="montserrat-font-semi-bold f-s-14"></Label>
+                </FlexboxLayout>
+                <FlexboxLayout class="navigation-point">
+                    <Label text="G" class="spin-icon m-r-20 f-s-24" style="color: #AEA3C0;"></Label>
+                    <Label text="My Profile" class="montserrat-font-semi-bold f-s-14"></Label>
+                </FlexboxLayout>
+                <FlexboxLayout class="navigation-point">
+                    <Label text="E" class="spin-icon m-r-20 f-s-24" style="color: #AEA3C0;"></Label>
+                    <Label text="Test History" class="montserrat-font-semi-bold f-s-14"></Label>
+                </FlexboxLayout>
+                <FlexboxLayout class="navigation-point">
+                    <Label text="D" class="spin-icon m-r-20 f-s-24" style="color: #AEA3C0;"></Label>
+                    <Label text="Add Test" class="montserrat-font-semi-bold f-s-14"></Label>
+                </FlexboxLayout>
+                <FlexboxLayout class="navigation-point">
+                    <Label text="F" class="spin-icon m-r-20 f-s-24" style="color: #AEA3C0;"></Label>
+                    <Label text="My Partners" class="montserrat-font-semi-bold f-s-14"></Label>
+                </FlexboxLayout>
+                <FlexboxLayout class="navigation-point">
+                    <Label text="A" class="spin-icon m-r-20 f-s-24" style="color: #AEA3C0;"></Label>
+                    <Label text="Settings" class="montserrat-font-semi-bold f-s-14"></Label>
+                </FlexboxLayout>
+                <FlexboxLayout class="navigation-point">
+                    <Label text="B" class="spin-icon m-r-20 f-s-24" style="color: #AEA3C0;"></Label>
+                    <Label text="Logout" class="montserrat-font-semi-bold f-s-14"></Label>
+                </FlexboxLayout>
             </StackLayout>
         </ScrollView>
     </GridLayout>

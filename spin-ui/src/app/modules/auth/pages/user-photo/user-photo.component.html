@@ -1,1 +1,21 @@
-<Button text="user-photo works!" class="btn btn-primary"></Button>
+<spin-header></spin-header>
+<GridLayout rows="auto, auto, auto">
+    <StackLayout row="0" class="registration-header">
+        <Label text="Registration" class="registration-header-title"></Label>
+        <Label text="Add your photo" class="registration-header-description"></Label>
+    </StackLayout>
+    <FlexboxLayout row="1" class="add-photo-container" (tap)="selectImage()">
+        <StackLayout class="add-photo-button">
+            <Label text="+"></Label>
+        </StackLayout>
+        <Label text="Your best pic" class="montserrat-font add-photo-description"></Label>
+    </FlexboxLayout>
+    <StackLayout row="2" class="m-t-30" width="280">
+        <Button [class.disabled]="isSubmitDisabled"
+                text="Register"
+                class="spin-button"
+                [isEnabled]="!isSubmitDisabled"
+                (tap)="submitForm()">
+        </Button>
+    </StackLayout>
+</GridLayout>

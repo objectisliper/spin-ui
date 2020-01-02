@@ -5,6 +5,7 @@ import {HeaderComponent} from "~/app/shared/layouts/header/header.component";
 import {AppModule} from "~/app/app.module";
 import {NativeScriptSvgModule} from '@teammaestro/nativescript-svg/angular';
 import { NativeScriptUISideDrawerModule } from "nativescript-ui-sidedrawer/angular";
+import {CommonModule} from "@angular/common";
 
 
 
@@ -18,6 +19,7 @@ import { NativeScriptUISideDrawerModule } from "nativescript-ui-sidedrawer/angul
         NativeScriptCommonModule,
         NativeScriptSvgModule,
         NativeScriptUISideDrawerModule,
+        CommonModule,
     ],
     exports: [
         HeaderComponent,

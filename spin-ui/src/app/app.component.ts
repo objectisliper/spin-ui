@@ -6,6 +6,9 @@ import * as indexReducer from "~/app/root-store";
 import {registerElement} from 'nativescript-angular';
 import {RadSideDrawer} from "nativescript-ui-sidedrawer";
 import * as app from "@nativescript/core/application";
+import {setIsSideDrawerOpen, toggleSideDrawerOpen} from "~/app/root-store/actions/root.shared-settings.action";
+import { RouterExtensions } from '@nativescript/angular/router';
+
 
 @Component({
     selector: "ns-app",
@@ -13,7 +16,7 @@ import * as app from "@nativescript/core/application";
 })
 export class AppComponent implements OnInit {
 
-    constructor(private _store: Store<indexReducer.State>) {
+    constructor(private _store: Store<indexReducer.State>, private _router: RouterExtensions) {
     }
 
     ngOnInit(): void {
@@ -22,5 +25,15 @@ export class AppComponent implements OnInit {
     onCloseDrawerTap(): void {
         const sideDrawer = <RadSideDrawer>app.getRootView();
         sideDrawer.closeDrawer();
+    }
+
+    setIsSideDrawerOpenState(value: boolean): void {
+        this._store.dispatch(setIsSideDrawerOpen({payload: {isSideDrawerOpen: value}}));
+    }
+
+    navigateTo(path: string): void {
+        this._router.navigate([path]);
+        this._store.dispatch(setIsSideDrawerOpen({payload: {isSideDrawerOpen: false}}));
+        this.onCloseDrawerTap();
     }
 }

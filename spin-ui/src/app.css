@@ -20,12 +20,43 @@ This is where the vast majority of your CSS code goes. */
 The following CSS rule changes the font size of all Buttons that have the
 "-primary" class modifier.
 */
+
+.registration-header {
+    padding: 50dp 40dp;
+    background: linear-gradient(90deg, #9158F3 0%, #ED63B4 100%);
+}
+
+.registration-header-title, .registration-header-description {
+    text-transform: uppercase;
+    color: white;
+}
+
+.registration-header-title {
+    font-style: normal;
+    font-weight: 800;
+    font-size: 49dp;
+    line-height: 58dp;
+}
+
+.registration-header-description {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20dp;
+    line-height: 25dp;
+}
+
 Button.-primary {
     font-size: 18;
 }
 
 .montserrat-font {
     font-family: "Montserrat", "Montserrat-Medium";
+}
+
+.montserrat-font-semi-bold {
+    font-family: "Montserrat", "Montserrat-SemiBold";
+    font-style: normal;
+    font-weight: 600;
 }
 
 .far {
@@ -71,7 +102,13 @@ RadSideDrawer .drawerContentButton {
     horizontal-align: left;
 }
 
+.f-s-14 {
+    font-size: 14;
+}
 
+.f-s-24 {
+    font-size: 24;
+}
 
 .sideTitleStackLayout {
     text-align: center;
@@ -80,5 +117,19 @@ RadSideDrawer .drawerContentButton {
 
 .sideLabel {
     padding: 10;
+}
+
+.side-drawer-close-icon {
+    font-size: 24;
+    border-bottom-width: 1px;
+    border-bottom-color: #EBE6F3;
+}
+
+.navigation-point {
+    padding-left: 20;
+    height: auto;
+    margin-top: 30;
+    margin-bottom: 0;
+    padding-bottom: 0;
 }
 

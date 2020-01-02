@@ -11,12 +11,14 @@ import {NativeScriptFormsModule} from "@nativescript/angular/forms";
 import { NativeScriptMaterialTextFieldModule } from 'nativescript-material-textfield/angular';
 import {ReactiveFormsModule} from "@angular/forms";
 import { UserPhotoComponent } from './pages/user-photo/user-photo.component';
+import {ConnectFormDirective} from "~/app/directives/reactive-form-ngrx-connector.directive";
 
 
 @NgModule({
   declarations: [
       RegistrationComponent,
-      UserPhotoComponent
+      UserPhotoComponent,
+      ConnectFormDirective
   ],
     imports: [
         AuthRoutingModule,
@@ -26,6 +28,7 @@ import { UserPhotoComponent } from './pages/user-photo/user-photo.component';
         SharedLayoutsModule,
         NativeScriptMaterialTextFieldModule,
         ReactiveFormsModule,
+        CommonModule,
     ],
   schemas: [NO_ERRORS_SCHEMA]
 })

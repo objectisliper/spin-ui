@@ -3,6 +3,11 @@ import {RadSideDrawerComponent} from "nativescript-ui-sidedrawer/angular";
 import {PushTransition, RadSideDrawer} from "nativescript-ui-sidedrawer";
 import { getRootView } from "@nativescript/core/application";
 import {Page} from "@nativescript/core";
+import {Store} from "@ngrx/store";
+import * as indexReducer from "~/app/root-store";
+import {selectIsSideDrawerOpen} from "~/app/root-store";
+import {Observable} from "rxjs";
+import {toggleSideDrawerOpen} from "~/app/root-store/actions/root.shared-settings.action";
 
 @Component({
   selector: 'spin-header',
@@ -11,11 +16,11 @@ import {Page} from "@nativescript/core";
 })
 export class HeaderComponent implements OnInit {
 
-    menuOpened: boolean = false;
+    menuOpened: Observable<boolean> = this._store.select(selectIsSideDrawerOpen);
 
     private _rootDrawer: RadSideDrawer;
 
-    constructor(private page: Page) {
+    constructor(private page: Page, private _store: Store<indexReducer.State>) {
     }
 
     ngOnInit() {
@@ -23,11 +28,9 @@ export class HeaderComponent implements OnInit {
     }
 
     toggleSideMenu() {
-        console.log('tapped');
-        this.menuOpened = !this.menuOpened;
         if (this._rootDrawer) {
-            console.log('test');
             this._rootDrawer.toggleDrawerState();
+            this._store.dispatch(toggleSideDrawerOpen())
         }
     }
 
