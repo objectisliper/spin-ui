@@ -1,6 +1,10 @@
+import uuid
+
 from django.contrib.auth.models import User
 from rest_framework import serializers
 from django.contrib.auth.hashers import make_password, check_password
+from rest_framework.response import Response
+
 from spin.apps.authentication.models import BunchOfKeys, AnonymousUser
 from spin.apps.authentication.utils import generator_hash
 from spin.apps.storage.models import EncryptedUserData
@@ -26,7 +30,7 @@ class EncryptedUserDataSerializer(serializers.ModelSerializer):
         )
         keys.save()
 
-        return server_shared_pub_key
+        return Response(server_shared_pub_key)
 
 
 class CreateClientSerializer(serializers.ModelSerializer):
@@ -39,13 +43,13 @@ class CreateClientSerializer(serializers.ModelSerializer):
         fields = 'shared', 'email', 'password',
 
     def create(self, validated_data):
-        client_hash = generator_hash()
+        client_hash = uuid.uuid4()
         AnonymousUser.objects.create(shared=validated_data.get('shared'),
                                      email=validated_data.get('email'),
                                      password=make_password(validated_data.get('password')),
                                      client_hash=client_hash,
-                                     username=generator_hash()
+                                     username=uuid.uuid4()
                                      )
         EncryptedUserData.objects.create(client_hash=client_hash)
-        return client_hash
+        return Response(client_hash)
 
