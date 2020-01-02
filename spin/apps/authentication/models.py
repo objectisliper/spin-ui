@@ -1,6 +1,6 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
-
+from django.utils.translation import ugettext_lazy as _
 
 # Create your models here.
 
@@ -16,6 +16,11 @@ class AnonymousUser(AbstractUser):
     keys_swapped = models.BooleanField(default=False)
     shared = models.BooleanField(default=False)
     email = models.CharField(max_length=100, default='spin-project@info.com')
+    username = None
+    email = models.EmailField(_('email address'), unique=True)
+
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = []
 
     def __str__(self):
         return self.client_hash
