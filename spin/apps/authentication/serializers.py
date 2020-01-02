@@ -6,7 +6,6 @@ from django.contrib.auth.hashers import make_password, check_password
 from rest_framework.response import Response
 
 from spin.apps.authentication.models import BunchOfKeys, AnonymousUser
-from spin.apps.authentication.utils import generator_hash
 from spin.apps.storage.models import EncryptedUserData
 
 
