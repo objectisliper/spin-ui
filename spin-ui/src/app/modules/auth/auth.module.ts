@@ -12,6 +12,7 @@ import { NativeScriptMaterialTextFieldModule } from 'nativescript-material-textf
 import {ReactiveFormsModule} from "@angular/forms";
 import { UserPhotoComponent } from './pages/user-photo/user-photo.component';
 import {ConnectFormDirective} from "~/app/directives/reactive-form-ngrx-connector.directive";
+import {SpinUiKitModule} from "~/app/shared/spin-ui-kit/spin-ui-kit.module";
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import {ConnectFormDirective} from "~/app/directives/reactive-form-ngrx-connecto
         NativeScriptMaterialTextFieldModule,
         ReactiveFormsModule,
         CommonModule,
+        SpinUiKitModule,
     ],
   schemas: [NO_ERRORS_SCHEMA]
 })

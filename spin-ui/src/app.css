@@ -87,10 +87,22 @@ Button.-primary {
     height: 60;
 }
 
+.spin-button Label {
+    vertical-align: center;
+}
+
+.spin-button .spin-button-label {
+    font-family: "Montserrat", "Montserrat-Bold";
+    font-weight: bold;
+    font-size: 14;
+    line-height: 17;
+    color: #FFFFFF;
+    text-transform: uppercase;
+}
+
 .spin-button.disabled {
     background: #EBE6F3;
 }
-
 
 RadSideDrawer .drawerContentText {
     font-size: 13;
@@ -104,6 +116,10 @@ RadSideDrawer .drawerContentButton {
 
 .f-s-14 {
     font-size: 14;
+}
+
+.f-s-18 {
+    font-size: 18;
 }
 
 .f-s-24 {

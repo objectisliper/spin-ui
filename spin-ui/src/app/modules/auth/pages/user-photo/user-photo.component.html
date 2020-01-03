@@ -1,20 +1,29 @@
 <spin-header></spin-header>
 <GridLayout rows="auto, auto, auto">
-    <StackLayout row="0" class="registration-header">
+    <Image *ngIf="(isProfileImageSet | async) === true" [src]="(profileImage | async)" stretch="aspectFill" row="0"
+           class="profile-image">
+    </Image>
+    <StackLayout row="0" class="registration-header" #addPhotoHeader>
         <Label text="Registration" class="registration-header-title"></Label>
         <Label text="Add your photo" class="registration-header-description"></Label>
     </StackLayout>
-    <FlexboxLayout row="1" class="add-photo-container" (tap)="selectImage()">
+    <FlexboxLayout *ngIf="(isProfileImageSet | async) === false"
+                   row="1"
+                   class="add-photo-container"
+                   (tap)="selectImage()">
         <StackLayout class="add-photo-button">
             <Label text="+"></Label>
         </StackLayout>
         <Label text="Your best pic" class="montserrat-font add-photo-description"></Label>
     </FlexboxLayout>
+    <Image *ngIf="(isProfileImageSet | async) === true" [src]="(profileImage | async)" width="280" height="280" row="1"
+           class="profile-image">
+    </Image>
     <StackLayout row="2" class="m-t-30" width="280">
-        <Button [class.disabled]="isSubmitDisabled"
+        <Button [class.disabled]="(isProfileImageSet | async) === false"
                 text="Register"
                 class="spin-button"
-                [isEnabled]="!isSubmitDisabled"
+                [isEnabled]="(isProfileImageSet | async) === true"
                 (tap)="submitForm()">
         </Button>
     </StackLayout>

@@ -32,6 +32,7 @@
     "lodash-es": "^4.17.15",
     "mdb-angular-mobile": "file:mdb-angular-mobile-8.0.0.tgz",
     "nativescript-angular": "rc",
+    "nativescript-imagecropper": "file:nativescript-imagecropper-2.0.0.tgz",
     "nativescript-imagepicker": "^7.1.0",
     "nativescript-material-textfield": "^3.0.6",
     "nativescript-sqlite": "^2.3.3",

@@ -36,21 +36,28 @@
             <GridLayout columns="*, auto" row="2" class="p-x-10 form-block">
                 <StackLayout column="0">
                     <MDTextField  hint="Password:"
-                                  placeholderColor="#2A2B2E"
+                                  [placeholderColor]="!!passwordError ? 'red' : '#2A2B2E'"
                                   backgroundColor="white"
-                                  floatingColor="#AEA3C0"
-                                  returnKeyType="next"
-                                  strokeColor="#9158F3"
+                                  [floatingColor]="!!passwordError ? 'red' : '#AEA3C0'"
+                                  returnKeyType="done"
+                                  [strokeColor]="!!passwordError ? 'red' : '#9158F3'"
                                   formControlName="password"
                                   class="montserrat-font"
+                                  (returnPress)="submitForm()"
                                   [secure]="hidePassword">
                     </MDTextField>
                 </StackLayout>
-                <Label [text]="hidePassword ? 'I' : 'I'" column="1" verticalAlignment="center" class="spin-icon password-icon"
+                <Label [text]="hidePassword ? 'I' : 'I'"
+                       column="1"
+                       verticalAlignment="center"
+                       class="spin-icon password-icon"
                        (tap)="togglePassword()">
                 </Label>
             </GridLayout>
         </GridLayout>
+        <StackLayout>
+            <Label [text]="passwordError" [textWrap]="true" color="red" class="p-x-10"></Label>
+        </StackLayout>
         <GridLayout rows="auto, auto">
             <GridLayout row="0" columns="auto, *" class="registration-attention-block m-t-30">
                 <Label text="" class="fas" col="0"></Label>
@@ -65,12 +72,10 @@
                 </StackLayout>
             </GridLayout>
             <StackLayout row="1" class="m-t-15">
-                <Button [class.disabled]="isSubmitDisabled"
-                        text="Next"
-                        class="spin-button"
-                        [isEnabled]="!isSubmitDisabled"
-                        (tap)="submitForm()">
-                </Button>
+                <SUIBasicButton text="Next"
+                                (tap)="submitForm()"
+                                [isEnabled]="!isSubmitDisabled">
+                </SUIBasicButton>
             </StackLayout>
         </GridLayout>
     </StackLayout>

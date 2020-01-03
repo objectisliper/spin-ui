@@ -4,6 +4,11 @@
     height: 50%;
 }
 
+.registration-header.active {
+    background: linear-gradient(90deg, rgba(145, 88, 243, 0.8) 0%, rgba(237, 99, 180, 0.8) 100%);
+}
+
+
 .add-photo-container {
     margin-top: -140;
     width: 280;
@@ -35,4 +40,8 @@
     font-size: 12;
     line-height: 15;
     margin-top: 15;
+}
+
+.profile-image {
+    margin-top: -140;
 }

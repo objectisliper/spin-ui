@@ -1,0 +1,9 @@
+<GridLayout class="spin-button p-t-5 p-x-20 {{class}}"
+            [class.disabled]="!isEnabled"
+            (tap)="onButtonTap()"
+            columns="auto, *, auto, *, auto"
+            #SUIBasicButton>
+    <Label [text]="text" col="2" class="spin-button-label">
+    </Label>
+    <Label *ngIf="arrow" text="J" class="spin-icon f-s-18" col="4"></Label>
+</GridLayout>
