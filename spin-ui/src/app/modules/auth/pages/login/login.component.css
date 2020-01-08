@@ -1,0 +1,30 @@
+/* Add mobile styles for the component here.  */
+
+.password-icon {
+    margin-left: -18dp;
+    font-size: 18;
+}
+
+MDTextField {
+    padding-left: 0;
+    color: #2A2B2E;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.form-block {
+    margin-top: 40;
+}
+
+.registration-attention-block Label.fas {
+    color: red;
+    font-size: 18;
+}
+
+.registration-attention-block TextView {
+    margin-top: 0;
+    padding-top: 0;
+    font-size: 12;
+    border-bottom-width: 0;
+}

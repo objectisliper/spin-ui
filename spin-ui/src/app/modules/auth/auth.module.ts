@@ -13,13 +13,15 @@ import {ReactiveFormsModule} from "@angular/forms";
 import { UserPhotoComponent } from './pages/user-photo/user-photo.component';
 import {ConnectFormDirective} from "~/app/directives/reactive-form-ngrx-connector.directive";
 import {SpinUiKitModule} from "~/app/shared/spin-ui-kit/spin-ui-kit.module";
+import { LoginComponent } from './pages/login/login.component';
 
 
 @NgModule({
   declarations: [
       RegistrationComponent,
       UserPhotoComponent,
-      ConnectFormDirective
+      ConnectFormDirective,
+      LoginComponent
   ],
     imports: [
         AuthRoutingModule,
