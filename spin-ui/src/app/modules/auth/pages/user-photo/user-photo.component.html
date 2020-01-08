@@ -21,8 +21,9 @@
     </Image>
     <StackLayout row="2" class="m-t-30" width="280">
         <SUIBasicButton text="Register"
-                        (tap)="submitForm()"
-                        [isEnabled]="(isProfileImageSet | async) === true">
+                        (buttonTapped)="submitForm()"
+                        [isEnabled]="(isProfileImageSet | async) === true && !loading">
         </SUIBasicButton>
     </StackLayout>
 </GridLayout>
+<ActivityIndicator [busy]="loading" color="#9158F3" width="100" height="100"></ActivityIndicator>

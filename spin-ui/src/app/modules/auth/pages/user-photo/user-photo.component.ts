@@ -6,10 +6,12 @@ import {Store} from "@ngrx/store";
 import * as indexReducer from "~/app/root-store";
 import {setProfileImage} from "~/app/root-store/actions/root.settings.action";
 import {Observable} from "rxjs";
-import {isProfileImageSet, selectProfileImage} from "~/app/root-store";
+import {isJwtExpired, isProfileImageSet, selectProfileImage} from "~/app/root-store";
 import {ImageAsset, ImageSource, View} from "@nativescript/core";
 import {ImageCropper} from "nativescript-imagecropper";
 import {skipWhile, take} from "rxjs/internal/operators";
+import {registerUser} from "~/app/modules/auth/store/actions/auth.actions";
+import { RouterExtensions } from '@nativescript/angular/router';
 
 @Component({
   selector: 'ns-user-photo',
@@ -20,10 +22,11 @@ export class UserPhotoComponent implements OnInit, AfterViewInit {
 
     isProfileImageSet: Observable<boolean> = this._store.select(isProfileImageSet);
     profileImage = this._store.select(selectProfileImage);
+    loading: boolean = false;
 
     @ViewChild('addPhotoHeader', {static: true}) private _addPhotoHeaderView: ElementRef;
 
-    constructor(private _store: Store<indexReducer.State>) { }
+    constructor(private _store: Store<indexReducer.State>, private _router: RouterExtensions) { }
 
     ngOnInit() {
     }
@@ -33,12 +36,16 @@ export class UserPhotoComponent implements OnInit, AfterViewInit {
         this.profileImage.pipe(skipWhile(image => !image), take(1)).subscribe(image => {
             const addPhotoHeaderElement = <View>this._addPhotoHeaderView.nativeElement;
             addPhotoHeaderElement.className += ' active';
-            console.log(JSON.stringify(addPhotoHeaderElement.className));
-        })
+        });
     }
 
     submitForm(): void {
-
+        this._store.dispatch(registerUser());
+        this.loading = true;
+        this._store.select(isJwtExpired).pipe(skipWhile(result => !!result)).subscribe(() => {
+            this.loading = false;
+            this._router.navigate(['add-test'], {clearHistory: true})
+        })
     }
 
     selectImage() {

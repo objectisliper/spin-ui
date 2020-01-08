@@ -8,6 +8,7 @@ import {RadSideDrawer} from "nativescript-ui-sidedrawer";
 import * as app from "@nativescript/core/application";
 import {setIsSideDrawerOpen, toggleSideDrawerOpen} from "~/app/root-store/actions/root.shared-settings.action";
 import { RouterExtensions } from '@nativescript/angular/router';
+import {isJwtExpired} from "~/app/root-store";
 
 
 @Component({
@@ -15,6 +16,8 @@ import { RouterExtensions } from '@nativescript/angular/router';
     templateUrl: "./app.component.html"
 })
 export class AppComponent implements OnInit {
+
+    isJwtExpired = this._store.select(isJwtExpired);
 
     constructor(private _store: Store<indexReducer.State>, private _router: RouterExtensions) {
     }

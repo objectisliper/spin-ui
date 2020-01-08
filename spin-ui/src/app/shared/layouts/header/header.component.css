@@ -55,3 +55,17 @@ button {
     font-size: 15;
     horizontal-align: center;
 }
+
+.notifications-ben {
+    vertical-align: center;
+    horizontal-align: center;
+}
+
+.notification-circle {
+    background-color: red;
+    width: 8;
+    height: 8;
+    border-radius: 8;
+    margin-bottom: 10;
+    margin-left: -6;
+}

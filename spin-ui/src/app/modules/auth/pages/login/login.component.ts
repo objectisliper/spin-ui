@@ -17,10 +17,7 @@ export class LoginComponent implements OnInit {
 
     isSubmitted: boolean = false;
 
-    form$ = this._store.select(selectUserRegistrationData);
-
     registrationForm = new FormGroup({
-        name: new FormControl('', [Validators.required]),
         email: new FormControl('', [Validators.required, Validators.email]),
         password: new FormControl('', [Validators.required,
             Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])/), Validators.minLength(8)]),
@@ -33,20 +30,6 @@ export class LoginComponent implements OnInit {
         return this.registrationForm.invalid
     }
 
-    get passwordError(): string | null {
-        if (this.registrationForm.get('password').value.length > 0) {
-            if (this.registrationForm.get('password').hasError('minlength')) {
-                return 'Password must be eight characters or longer'
-            }
-            if (this.registrationForm.get('password').hasError('pattern')) {
-                return 'Password must contain at least 1 lowercase and uppercase alphabetical character ' +
-                    'and at least 1 numeric character'
-            }
-        }
-
-        return null;
-    }
-
     ngOnInit() {
     }
 
@@ -55,12 +38,13 @@ export class LoginComponent implements OnInit {
         console.log(this.registrationForm.invalid)
     }
 
+    goToRegistration(): void {
+        this._router.navigate(['auth', 'registration'])
+    }
+
     submitForm(): void {
         this.isSubmitted = true;
         if (this.registrationForm.valid) {
-            this._store.dispatch(setUserRegistrationData(
-                {payload: {userRegistrationData: this.registrationForm.value}}
-            ));
             this._router.navigate(['auth', 'user-photo'])
         }
     }

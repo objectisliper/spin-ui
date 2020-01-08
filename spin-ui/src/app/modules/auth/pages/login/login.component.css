@@ -28,3 +28,7 @@ MDTextField {
     font-size: 12;
     border-bottom-width: 0;
 }
+
+.login-footer {
+    horizontal-align: center;
+}
