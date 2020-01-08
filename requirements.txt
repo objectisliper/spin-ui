@@ -21,3 +21,5 @@ PyJWT==1.7.1
 django-split-settings==0.3.0
 celery==4.3
 python-dotenv==0.9.1
+djangorestframework-jwt==1.11.0
+djangorestframework-simplejwt==4.4.0

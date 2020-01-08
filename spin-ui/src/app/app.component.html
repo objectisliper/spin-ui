@@ -4,9 +4,9 @@
         <StackLayout class="sideTitleStackLayout" (tap)="onCloseDrawerTap()">
             <Label text="C" class="spin-icon text-left side-drawer-close-icon p-y-15 p-l-20"></Label>
         </StackLayout>
-        <ScrollView row="1" class="p-l-20">
+        <ScrollView row="1" class="p-l-20" *ngIf="false">
             <StackLayout class="sideStackLayout">
-                <FlexboxLayout class="navigation-point" (tap)="navigateTo('auth/user-photo')">
+                <FlexboxLayout class="navigation-point">
                     <Label text="H" class="spin-icon m-r-20 f-s-24" style="color: #AEA3C0;"></Label>
                     <Label text="QR Scanner" class="montserrat-font-semi-bold f-s-14"></Label>
                 </FlexboxLayout>
@@ -33,6 +33,18 @@
                 <FlexboxLayout class="navigation-point">
                     <Label text="B" class="spin-icon m-r-20 f-s-24" style="color: #AEA3C0;"></Label>
                     <Label text="Logout" class="montserrat-font-semi-bold f-s-14"></Label>
+                </FlexboxLayout>
+            </StackLayout>
+        </ScrollView>
+        <ScrollView row="1" class="p-l-20" *ngIf="true">
+            <StackLayout class="sideStackLayout">
+                <FlexboxLayout class="navigation-point" (tap)="navigateTo('auth/login')">
+                    <Label text="K" class="spin-icon m-r-20 f-s-24" style="color: #AEA3C0;"></Label>
+                    <Label text="Sign In" class="montserrat-font-semi-bold f-s-14"></Label>
+                </FlexboxLayout>
+                <FlexboxLayout class="navigation-point" (tap)="navigateTo('auth/registration')">
+                    <Label text="L" class="spin-icon m-r-20 f-s-24" style="color: #AEA3C0;"></Label>
+                    <Label text="Sign up" class="montserrat-font-semi-bold f-s-14"></Label>
                 </FlexboxLayout>
             </StackLayout>
         </ScrollView>

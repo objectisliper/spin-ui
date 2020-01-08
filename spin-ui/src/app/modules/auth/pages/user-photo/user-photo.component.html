@@ -20,11 +20,9 @@
            class="profile-image">
     </Image>
     <StackLayout row="2" class="m-t-30" width="280">
-        <Button [class.disabled]="(isProfileImageSet | async) === false"
-                text="Register"
-                class="spin-button"
-                [isEnabled]="(isProfileImageSet | async) === true"
-                (tap)="submitForm()">
-        </Button>
+        <SUIBasicButton text="Register"
+                        (tap)="submitForm()"
+                        [isEnabled]="(isProfileImageSet | async) === true">
+        </SUIBasicButton>
     </StackLayout>
 </GridLayout>
