@@ -53,4 +53,3 @@ class CreateClientSerializer(serializers.ModelSerializer):
         EncryptedUserData.objects.create(client_hash=client_hash)
         self.validated_data['jwt'] = get_jwt_token(user)
         return Response(validated_data)
-

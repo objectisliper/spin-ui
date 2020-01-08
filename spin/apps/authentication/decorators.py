@@ -5,7 +5,7 @@ from django.conf import settings
 from django.http import JsonResponse
 
 from spin.settings.common import SECRET_KEY
-from spin.settings.local_settings import IS_LOCAL
+from spin.settings.common import IS_LOCAL
 
 
 class APISigning(object):
