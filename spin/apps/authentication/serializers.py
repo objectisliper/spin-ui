@@ -1,3 +1,5 @@
+import base64
+import os
 import uuid
 from rest_framework.authtoken.views import ObtainAuthToken
 from django.contrib.auth.models import User
@@ -5,6 +7,7 @@ from rest_framework import serializers
 from django.contrib.auth.hashers import make_password, check_password
 from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
+from simplecrypt import encrypt
 
 from spin.apps.authentication.managers import get_jwt_token
 from spin.apps.authentication.models import BunchOfKeys, AnonymousUser
@@ -46,6 +49,7 @@ class CreateClientSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         client_hash = uuid.uuid4()
+        os.environ['PRIVATE_ENCRYPT_KEY'] = validated_data.get('password')
         user = AnonymousUser.objects.create(shared=validated_data.get('shared'),
                                      email=validated_data.get('email'),
                                      password=make_password(validated_data.get('password')),

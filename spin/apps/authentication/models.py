@@ -3,6 +3,7 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
 # Create your models here.
+from spin.apps.storage.models import EncryptedText, EncryptedEmail
 
 
 class BunchOfKeys(models.Model):
@@ -17,7 +18,7 @@ class AnonymousUser(AbstractUser):
     shared = models.BooleanField(default=False)
     # username = None
     name = models.CharField(max_length=128, unique=False)
-    email = models.EmailField(_('email address'), unique=True)
+    email = EncryptedEmail(_('email address'), unique=True)
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
 
