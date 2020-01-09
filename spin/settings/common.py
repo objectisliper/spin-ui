@@ -74,3 +74,4 @@ LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 
 
+IS_LOCAL = True

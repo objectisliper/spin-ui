@@ -35,12 +35,13 @@ class EncryptedUserDataSerializer(serializers.ModelSerializer):
 
 class CreateClientSerializer(serializers.ModelSerializer):
     shared = serializers.BooleanField()
+    name = serializers.CharField()
     email = serializers.CharField()
     password = serializers.CharField()
 
     class Meta:
         model = AnonymousUser
-        fields = 'shared', 'email', 'password',
+        fields = 'shared', 'email', 'password', 'name',
 
     def create(self, validated_data):
         client_hash = uuid.uuid4()
@@ -48,9 +49,9 @@ class CreateClientSerializer(serializers.ModelSerializer):
                                      email=validated_data.get('email'),
                                      password=make_password(validated_data.get('password')),
                                      client_hash=client_hash,
+                                     name=validated_data.get('name'),
                                      username=uuid.uuid4()
                                      )
         EncryptedUserData.objects.create(client_hash=client_hash)
         self.validated_data['jwt'] = get_jwt_token(user)
         return Response(validated_data)
-

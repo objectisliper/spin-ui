@@ -16,8 +16,8 @@ class AnonymousUser(AbstractUser):
     keys_swapped = models.BooleanField(default=False)
     shared = models.BooleanField(default=False)
     # username = None
+    name = models.CharField(max_length=128, unique=False)
     email = models.EmailField(_('email address'), unique=True)
-
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
 
