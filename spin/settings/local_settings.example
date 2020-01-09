@@ -1,0 +1,19 @@
+DATABASES = {
+   'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'project_spin',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
+        'USER': 'root',
+        'PASSWORD': 'root',
+        'OPTIONS': {
+           'sql_mode': 'traditional',
+           'init_command': 'SET innodb_strict_mode=1',
+           'charset': 'utf8mb4',
+        },
+        'TEST': {
+            'CHARSET': 'utf8',
+            'COLLATION': 'utf8_general_ci',
+        }
+   },
+}
