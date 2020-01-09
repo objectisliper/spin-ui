@@ -75,7 +75,7 @@ class EncryptedEmail(models.EmailField):
         return value
 
     def get_db_prep_value(self, value, connection, prepared=False):
-        __key_private = 'key_for_man'
+        __key_private = SECRET_KEY
         __key_public = os.environ.get('PUBLIC_ENCRYPT_KEY', None)
         if __key_private is None:
             raise ValueError('No PRIVATE_ENCRYPT_KEY environment variable found!')
