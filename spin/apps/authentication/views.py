@@ -32,4 +32,4 @@ class CreateClientAPIView(APIView):
         serializer = self.serializer_class(data=request.data)
         serializer.is_valid(raise_exception=False)
         serializer.create(serializer.data)
-        return Response({'jwt':serializer.validated_data['jwt'], 'name' : serializer.validated_data['name']}, status=status.HTTP_200_OK)
+        return Response({'jwt': serializer.validated_data['jwt']}, status=status.HTTP_200_OK)
