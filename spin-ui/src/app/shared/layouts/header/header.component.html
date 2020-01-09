@@ -13,5 +13,11 @@
             </GridLayout>
         </StackLayout>
         <Label col="1" textWrap="true" text="Spin" class="montserrat-font spin-header"></Label>
+        <StackLayout col="2" class="notifications-ben" *ngIf="(isUserAuth | async) === false">
+            <GridLayout columns="auto, auto">
+                <Label col="0" text="M" class="spin-icon f-s-18 p-0 m-0"></Label>
+                <StackLayout col="1" class="notification-circle"></StackLayout>
+            </GridLayout>
+        </StackLayout>
     </GridLayout>
 </ActionBar>

@@ -34,14 +34,14 @@ The following CSS rule changes the font size of all Buttons that have the
 .registration-header-title {
     font-style: normal;
     font-weight: 800;
-    font-size: 49dp;
+    font-size: 40dp;
     line-height: 58dp;
 }
 
 .registration-header-description {
     font-style: normal;
     font-weight: 400;
-    font-size: 20dp;
+    font-size: 16dp;
     line-height: 25dp;
 }
 

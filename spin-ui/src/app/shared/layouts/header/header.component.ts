@@ -5,9 +5,10 @@ import { getRootView } from "@nativescript/core/application";
 import {Page} from "@nativescript/core";
 import {Store} from "@ngrx/store";
 import * as indexReducer from "~/app/root-store";
-import {selectIsSideDrawerOpen} from "~/app/root-store";
+import {isJwtExpired, selectIsSideDrawerOpen} from "~/app/root-store";
 import {Observable} from "rxjs";
 import {toggleSideDrawerOpen} from "~/app/root-store/actions/root.shared-settings.action";
+import {map} from "rxjs/internal/operators";
 
 @Component({
   selector: 'spin-header',
@@ -17,6 +18,8 @@ import {toggleSideDrawerOpen} from "~/app/root-store/actions/root.shared-setting
 export class HeaderComponent implements OnInit {
 
     menuOpened: Observable<boolean> = this._store.select(selectIsSideDrawerOpen);
+
+    isUserAuth: Observable<boolean> = this._store.select(isJwtExpired).pipe(map(result => !result));
 
     private _rootDrawer: RadSideDrawer;
 

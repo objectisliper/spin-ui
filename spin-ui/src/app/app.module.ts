@@ -19,6 +19,8 @@ import {StorageService} from "~/app/shared/services/storage.service";
 import {storageMetaReducer} from "~/app/root-store/meta-redusers/store-metareducer";
 import {NativeScriptUISideDrawerModule} from "nativescript-ui-sidedrawer/angular";
 import {RouterModule} from "@angular/router";
+import {CommonModule} from "@angular/common";
+import {AuthEffects} from "~/app/modules/auth/store/side-effects/auth.effects";
 
 export function getRootStoreConfig(saveKeys: string[],
                                     localStorageKey: string,
@@ -38,10 +40,11 @@ export function getRootStoreConfig(saveKeys: string[],
         NativeScriptFormsModule,
         NativeScriptHttpClientModule,
         NativeScriptUIListViewModule,
-        EffectsModule.forRoot([]),
+        EffectsModule.forRoot([AuthEffects]),
         StoreModule.forRoot(reducers),
         NativeScriptUISideDrawerModule,
         RouterModule,
+        CommonModule,
     ],
     declarations: [
         AppComponent,

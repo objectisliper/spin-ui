@@ -11,7 +11,7 @@ export class SUIBasicButtonComponent implements OnInit, AfterViewInit {
     @Input() class: string;
     @Input() isEnabled: boolean;
     @Input() arrow: boolean = true;
-    @Output() tap = new EventEmitter();
+    @Output() buttonTapped = new EventEmitter();
 
     tapped: boolean = false;
 
@@ -29,7 +29,7 @@ export class SUIBasicButtonComponent implements OnInit, AfterViewInit {
 
     onButtonTap() {
         if (this.isEnabled) {
-            this.tap.emit();
+            this.buttonTapped.emit();
         }
     }
 

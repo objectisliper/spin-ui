@@ -3,6 +3,7 @@ import * as rootSettingsStateReducer from './reducers/root.settings.reducer';
 import * as rootUserStateReducer from './reducers/root.user.reducer';
 import * as rootSharedSettingsStateReducer from './reducers/root.shared-settings.reducer';
 import {ImageSource} from "@nativescript/core";
+import * as jwtDecode from "jwt-decode"
 
 
 export interface State {
@@ -39,3 +40,8 @@ export const selectEncodingKey = createSelector(
 export const selectUserRegistrationData = createSelector(
     selectRootState,
     (state: State) => state.userData.userRegistrationData);
+
+export const isJwtExpired = createSelector(
+    selectRootState,
+    (state: State) => !!state.sharedSettings.jwtToken ?
+        new Date().getTime() / 1000 > jwtDecode(state.sharedSettings.jwtToken).exp : true);

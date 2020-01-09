@@ -1,82 +1,84 @@
 <spin-header></spin-header>
-<GridLayout rows="auto, *">
-    <StackLayout row="0" class="registration-header">
-        <Label text="Registration" class="registration-header-title"></Label>
-        <Label text="Login data" class="registration-header-description"></Label>
-    </StackLayout>
-    <StackLayout row="1" padding="24" class="form" [formGroup]="registrationForm" [connectForm]="form$ | async">
-        <GridLayout rows="auto, auto, auto">
-            <GridLayout columns="*, auto" row="0" class="p-x-10 m-t-30">
-                <StackLayout column="0">
-                    <MDTextField  hint="Name:"
-                                  placeholderColor="#2A2B2E"
-                                  backgroundColor="white"
-                                  floatingColor="#AEA3C0"
-                                  returnKeyType="next"
-                                  strokeColor="#9158F3"
-                                  formControlName="name"
-                                  class="montserrat-font">
-                    </MDTextField>
-                </StackLayout>
-            </GridLayout>
-            <GridLayout columns="*, auto" row="1" class="p-x-10 form-block">
-                <StackLayout column="0">
-                    <MDTextField  hint="Email:"
-                                  keyboardType="email"
-                                  placeholderColor="#2A2B2E"
-                                  backgroundColor="white"
-                                  floatingColor="#AEA3C0"
-                                  returnKeyType="next"
-                                  strokeColor="#9158F3"
-                                  formControlName="email"
-                                  class="montserrat-font">
-                    </MDTextField>
-                </StackLayout>
-            </GridLayout>
-            <GridLayout columns="*, auto" row="2" class="p-x-10 form-block">
-                <StackLayout column="0">
-                    <MDTextField  hint="Password:"
-                                  [placeholderColor]="!!passwordError ? 'red' : '#2A2B2E'"
-                                  backgroundColor="white"
-                                  [floatingColor]="!!passwordError ? 'red' : '#AEA3C0'"
-                                  returnKeyType="done"
-                                  [strokeColor]="!!passwordError ? 'red' : '#9158F3'"
-                                  formControlName="password"
-                                  class="montserrat-font"
-                                  (returnPress)="submitForm()"
-                                  [secure]="hidePassword">
-                    </MDTextField>
-                </StackLayout>
-                <Label [text]="hidePassword ? 'I' : 'I'"
-                       column="1"
-                       verticalAlignment="center"
-                       class="spin-icon password-icon"
-                       (tap)="togglePassword()">
-                </Label>
-            </GridLayout>
-        </GridLayout>
-        <StackLayout>
-            <Label [text]="passwordError" [textWrap]="true" color="red" class="p-x-10"></Label>
+<ScrollView>
+    <GridLayout rows="auto, *">
+        <StackLayout row="0" class="registration-header">
+            <Label text="Registration" class="registration-header-title"></Label>
+            <Label text="Login data" class="registration-header-description"></Label>
         </StackLayout>
-        <GridLayout rows="auto, auto">
-            <GridLayout row="0" columns="auto, *" class="registration-attention-block m-t-30">
-                <Label text="" class="fas" col="0"></Label>
-                <StackLayout col="1">
-                    <TextView editable="false">
-                        <FormattedString>
-                            <Span text="If you lose your password, you will lose access to your data.&#xa;" fontWeight="Bold"></Span>
-                            <Span text="- All your data is encrypted by your password and stored on your device only.&#xa;"></Span>
-                            <Span text="- SPIN has only limited acces to the anonymized connections history."></Span>
-                        </FormattedString>
-                    </TextView>
+        <StackLayout row="1" padding="24" class="form" [formGroup]="registrationForm" [connectForm]="form$ | async">
+            <GridLayout rows="auto, auto, auto">
+                <GridLayout columns="*, auto" row="0" class="p-x-10 m-t-30">
+                    <StackLayout column="0">
+                        <MDTextField  hint="Name:"
+                                      placeholderColor="#2A2B2E"
+                                      backgroundColor="white"
+                                      floatingColor="#AEA3C0"
+                                      returnKeyType="next"
+                                      strokeColor="#9158F3"
+                                      formControlName="name"
+                                      class="montserrat-font">
+                        </MDTextField>
+                    </StackLayout>
+                </GridLayout>
+                <GridLayout columns="*, auto" row="1" class="p-x-10 form-block">
+                    <StackLayout column="0">
+                        <MDTextField  hint="Email:"
+                                      keyboardType="email"
+                                      placeholderColor="#2A2B2E"
+                                      backgroundColor="white"
+                                      floatingColor="#AEA3C0"
+                                      returnKeyType="next"
+                                      strokeColor="#9158F3"
+                                      formControlName="email"
+                                      class="montserrat-font">
+                        </MDTextField>
+                    </StackLayout>
+                </GridLayout>
+                <GridLayout columns="*, auto" row="2" class="p-x-10 form-block">
+                    <StackLayout column="0">
+                        <MDTextField  hint="Password:"
+                                      [placeholderColor]="!!passwordError ? 'red' : '#2A2B2E'"
+                                      backgroundColor="white"
+                                      [floatingColor]="!!passwordError ? 'red' : '#AEA3C0'"
+                                      returnKeyType="done"
+                                      [strokeColor]="!!passwordError ? 'red' : '#9158F3'"
+                                      formControlName="password"
+                                      class="montserrat-font"
+                                      (returnPress)="submitForm()"
+                                      [secure]="hidePassword">
+                        </MDTextField>
+                    </StackLayout>
+                    <Label [text]="hidePassword ? 'I' : 'I'"
+                           column="1"
+                           verticalAlignment="center"
+                           class="spin-icon password-icon"
+                           (tap)="togglePassword()">
+                    </Label>
+                </GridLayout>
+            </GridLayout>
+            <StackLayout>
+                <Label [text]="passwordError" [textWrap]="true" color="red" class="p-x-10"></Label>
+            </StackLayout>
+            <GridLayout rows="auto, auto">
+                <GridLayout row="0" columns="auto, *" class="registration-attention-block m-t-30">
+                    <Label text="" class="fas" col="0"></Label>
+                    <StackLayout col="1">
+                        <TextView editable="false" class="montserrat-font">
+                            <FormattedString>
+                                <Span text="If you lose your password, you will lose access to your data.&#xa;" fontWeight="Bold"></Span>
+                                <Span text="- All your data is encrypted by your password and stored on your device only.&#xa;"></Span>
+                                <Span text="- SPIN has only limited acces to the anonymized connections history."></Span>
+                            </FormattedString>
+                        </TextView>
+                    </StackLayout>
+                </GridLayout>
+                <StackLayout row="1" class="m-t-15">
+                    <SUIBasicButton text="Next"
+                                    (buttonTapped)="submitForm()"
+                                    [isEnabled]="!isSubmitDisabled">
+                    </SUIBasicButton>
                 </StackLayout>
             </GridLayout>
-            <StackLayout row="1" class="m-t-15">
-                <SUIBasicButton text="Next"
-                                (tap)="submitForm()"
-                                [isEnabled]="!isSubmitDisabled">
-                </SUIBasicButton>
-            </StackLayout>
-        </GridLayout>
-    </StackLayout>
-</GridLayout>
+        </StackLayout>
+    </GridLayout>
+</ScrollView>

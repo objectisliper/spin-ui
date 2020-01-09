@@ -1,10 +1,10 @@
 <!-- https://docs.nativescript.org/angular/core-concepts/angular-navigation.html#page-router-outlet -->
 <RadSideDrawer (drawerClosing)="setIsSideDrawerOpenState(false)">
-    <GridLayout tkDrawerContent rows="50, *" class="sideStackLayout p-t-20">
+    <GridLayout tkDrawerContent rows="auto, *" class="sideStackLayout p-t-20">
         <StackLayout class="sideTitleStackLayout" (tap)="onCloseDrawerTap()">
             <Label text="C" class="spin-icon text-left side-drawer-close-icon p-y-15 p-l-20"></Label>
         </StackLayout>
-        <ScrollView row="1" class="p-l-20" *ngIf="false">
+        <ScrollView row="1" class="p-l-20" *ngIf="(isJwtExpired | async) === false">
             <StackLayout class="sideStackLayout">
                 <FlexboxLayout class="navigation-point">
                     <Label text="H" class="spin-icon m-r-20 f-s-24" style="color: #AEA3C0;"></Label>
@@ -36,7 +36,7 @@
                 </FlexboxLayout>
             </StackLayout>
         </ScrollView>
-        <ScrollView row="1" class="p-l-20" *ngIf="true">
+        <ScrollView row="1" class="p-l-20" *ngIf="(isJwtExpired | async) == true">
             <StackLayout class="sideStackLayout">
                 <FlexboxLayout class="navigation-point" (tap)="navigateTo('auth/login')">
                     <Label text="K" class="spin-icon m-r-20 f-s-24" style="color: #AEA3C0;"></Label>
