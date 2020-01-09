@@ -1,8 +1,9 @@
 import uuid
-
+from rest_framework.authtoken.views import ObtainAuthToken
 from django.contrib.auth.models import User
 from rest_framework import serializers
 from django.contrib.auth.hashers import make_password, check_password
+from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
 
 from spin.apps.authentication.managers import get_jwt_token
@@ -53,5 +54,7 @@ class CreateClientSerializer(serializers.ModelSerializer):
                                      username=uuid.uuid4()
                                      )
         EncryptedUserData.objects.create(client_hash=client_hash)
-        self.validated_data['jwt'] = get_jwt_token(user)
+        token, created = Token.objects.get_or_create(user=user)
+        self.validated_data['jwt'] = str(token)
+        self.validated_data['name'] = user.name
         return Response(validated_data)

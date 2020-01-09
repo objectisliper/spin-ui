@@ -1,7 +1,7 @@
 import jwt
 from rest_framework_jwt.utils import jwt_payload_handler
 
-from spin.settings.common import SECRET_KEY
+from spin.settings import SECRET_KEY
 
 
 def get_jwt_token(user):

@@ -4,7 +4,7 @@
 /spin/apps/worker/migrations/
 venv
 .idea
-/spin/settings/local_settings.py
+/spin/local_settings.py
 /logs/authentication.log
 /logs/storage.log
 /logs/worker.log

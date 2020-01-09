@@ -5,7 +5,6 @@ from celery import Celery
 from spin import settings
 from spin.apps.worker import logger
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'spin.settings')
 app = Celery('worker')
 
 # Using a string here means the worker will not have to

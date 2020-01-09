@@ -4,8 +4,8 @@ from hashlib import sha256
 from django.conf import settings
 from django.http import JsonResponse
 
-from spin.settings.common import SECRET_KEY
-from spin.settings.common import IS_LOCAL
+from spin.settings import SECRET_KEY
+from spin.settings import IS_LOCAL
 
 
 class APISigning(object):
