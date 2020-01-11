@@ -44,4 +44,23 @@
 
 .profile-image {
     margin-top: -140;
+    horizontal-align: center;
+}
+
+.edit-button {
+    vertical-align: bottom;
+    horizontal-align: left;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10;
+    margin-bottom: 10;
+    width: 48;
+    height: 48;
+    background-color: white;
+    border-radius: 24;
+}
+
+.edit-button Label {
+    padding: 0;
+    font-size: 20;
 }

@@ -1,6 +1,10 @@
 # Application definition
 import os
 import environ
+import os
+from kombu import Queue, Exchange
+from celery import Celery
+from datetime import timedelta
 from .local_settings import *
 from .logger import  *
 root = environ.Path(__file__) - 3
@@ -76,9 +80,9 @@ TIME_ZONE = 'UTC'
 
 IS_LOCAL = True
 INSTALLED_APPS = [
+    'django.contrib.contenttypes',
     'django.contrib.admin',
     'django.contrib.auth',
-    'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
@@ -107,11 +111,6 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 AUTH_USER_MODEL = 'authentication.AnonymousUser'
 
-import os
-from kombu import Queue, Exchange
-from celery import Celery
-
-
 
 CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_RESULT_SERIALIZER = 'json'
@@ -129,13 +128,8 @@ CELERY_ROUTES = {
 }
 
 
-from datetime import timedelta
-
-
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.BasicAuthentication',
-        'rest_framework.authentication.SessionAuthentication',
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ]
 }

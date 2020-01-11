@@ -4,11 +4,12 @@ import {Actions, createEffect, ofType} from "@ngrx/effects";
 import {catchError, concatMap, map, mergeMap, withLatestFrom} from "rxjs/internal/operators";
 import {EMPTY, of} from "rxjs";
 import * as indexReducer from "~/app/root-store";
-import {AuthUnion, registerUser} from "~/app/modules/auth/store/actions/auth.actions";
+import {AuthUnion, loginUser, registerUser} from "~/app/modules/auth/store/actions/auth.actions";
 import {AuthApiService} from "~/app/modules/auth/services/api-services/auth.service";
 import {selectUserRegistrationData} from "~/app/root-store";
 import {setJWTToken} from "~/app/root-store/actions/root.shared-settings.action";
 import {BaseService} from "~/app/shared/services/base.service";
+import * as jwtDecode from "jwt-decode"
 
 @Injectable()
 export class AuthEffects {
@@ -18,10 +19,24 @@ export class AuthEffects {
         concatMap(action => of(action).pipe(
             withLatestFrom(this._store.pipe(select(selectUserRegistrationData))),
         )),
-        mergeMap(([action, userData]) => this.authApiService.registerUser(
-            {email: userData.email, password: userData.password}
-            ).pipe(
+        mergeMap(([action, userData]) => this.authApiService.registerUser(userData).pipe(
             map(response => {
+                console.log(response);
+                return setJWTToken({payload: {jwtToken: response}});
+            }),
+            catchError((error) => {
+                console.log('sideEffect', error);
+                BaseService.showAlertSomethingWentWrong();
+                return EMPTY;
+            })
+        ))
+    ));
+
+    loginUser$ = createEffect(() => this.actions$.pipe(
+        ofType(loginUser),
+        mergeMap(({payload}) => this.authApiService.loginUser(payload).pipe(
+            map(response => {
+                console.log(jwtDecode(response));
                 return setJWTToken({payload: {jwtToken: response}});
             }),
             catchError((error) => {

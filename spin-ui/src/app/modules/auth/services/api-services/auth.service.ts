@@ -14,10 +14,15 @@ export class AuthApiService {
 
     constructor(private http: HttpClient) { }
 
-    public registerUser(data: {email: string, password: string}): Observable<string> {
-        return this.http.post(this.apiDomain + 'authentication/client_create',
-            {...data, shared: false}, {responseType: 'text'}).pipe(
-            map(data => data)
+    public registerUser(data: UserRegistrationModel): Observable<string> {
+        return this.http.post(this.apiDomain + 'authentication/client_create',{...data, shared: false}).pipe(
+            map(data => data['jwt'])
+        );
+    }
+
+    public loginUser(data: {email: string, password: string}): Observable<string> {
+        return this.http.post(this.apiDomain + 'authentication/api-auth/login/', data).pipe(
+            map(data => {console.log(data); return data['token']})
         );
     }
 }

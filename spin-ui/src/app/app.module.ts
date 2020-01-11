@@ -21,6 +21,7 @@ import {NativeScriptUISideDrawerModule} from "nativescript-ui-sidedrawer/angular
 import {RouterModule} from "@angular/router";
 import {CommonModule} from "@angular/common";
 import {AuthEffects} from "~/app/modules/auth/store/side-effects/auth.effects";
+import {httpInterceptorProviders} from "~/app/interceptors";
 
 export function getRootStoreConfig(saveKeys: string[],
                                     localStorageKey: string,
@@ -50,6 +51,7 @@ export function getRootStoreConfig(saveKeys: string[],
         AppComponent,
     ],
     providers: [
+        httpInterceptorProviders,
         {provide: ROOT_LOCAL_STORAGE_KEY, useValue: RootLocalStorageKey},
         {provide: ROOT_STORAGE_KEYS, useValue: ['settings']},
         {

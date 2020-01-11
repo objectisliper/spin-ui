@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {Store} from "@ngrx/store";
+import * as indexReducer from "~/app/root-store";
+import {Observable} from "rxjs";
+import {selectUserEmail, selectUserName} from "~/app/root-store";
 
 @Component({
   selector: 'ns-add-new',
@@ -7,9 +11,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddNewComponent implements OnInit {
 
-  constructor() { }
+    name: Observable<string> = this._store.select(selectUserName);
+    email: Observable<string> = this._store.select(selectUserEmail);
 
-  ngOnInit() {
-  }
+    constructor(private _store: Store<indexReducer.State>) {
+
+    }
+
+    ngOnInit() {
+    }
 
 }

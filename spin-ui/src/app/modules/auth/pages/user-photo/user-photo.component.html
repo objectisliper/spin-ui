@@ -16,9 +16,13 @@
         </StackLayout>
         <Label text="Your best pic" class="montserrat-font add-photo-description"></Label>
     </FlexboxLayout>
-    <Image *ngIf="(isProfileImageSet | async) === true" [src]="(profileImage | async)" width="280" height="280" row="1"
-           class="profile-image">
-    </Image>
+    <GridLayout *ngIf="(isProfileImageSet | async) === true" row="1" columns="auto" class="profile-image">
+        <Image width="280" height="280" [src]="(profileImage | async)" col="0" loadMode="async">
+        </Image>
+        <FlexboxLayout class="edit-button" col="0" (tap)="selectImage()">
+            <Label text="N" class="spin-icon"></Label>
+        </FlexboxLayout>
+    </GridLayout>
     <StackLayout row="2" class="m-t-30" width="280">
         <SUIBasicButton text="Register"
                         (buttonTapped)="submitForm()"

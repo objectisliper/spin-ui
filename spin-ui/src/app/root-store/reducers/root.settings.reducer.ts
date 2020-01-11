@@ -18,7 +18,7 @@ const rootSettingsReducer = createReducer(
   on(PredictionPageActions.setEncodingKey,
     (state, {payload}) => ({...state, ...payload})),
   on(PredictionPageActions.setProfileImage,
-    (state, {payload}) => ({...state, profileImage: payload.profileImage.toBase64String("jpeg", 100)})),
+    (state, {payload}) => ({...state, profileImage: payload.profileImage.toBase64String("png")})),
 );
 
 export function reducer(state: State | undefined, action: Action) {

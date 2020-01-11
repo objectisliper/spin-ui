@@ -17,6 +17,7 @@
                                       returnKeyType="next"
                                       strokeColor="#9158F3"
                                       formControlName="email"
+                                      [isEnabled]="!this.loading"
                                       class="montserrat-font">
                         </MDTextField>
                     </StackLayout>
@@ -27,11 +28,12 @@
                                       [placeholderColor]="'#2A2B2E'"
                                       backgroundColor="white"
                                       [floatingColor]="'#AEA3C0'"
-                                      returnKeyType="done"
+                                      returnKeyType="send"
                                       [strokeColor]="'#9158F3'"
                                       formControlName="password"
                                       class="montserrat-font"
-                                      (returnPress)="submitForm()"
+                                      [isEnabled]="!this.loading"
+                                      (blur)="submitForm()"
                                       [secure]="hidePassword">
                         </MDTextField>
                     </StackLayout>
@@ -59,7 +61,7 @@
                 <StackLayout row="1" class="m-t-15">
                     <SUIBasicButton text="Sign In"
                                     (buttonTapped)="submitForm()"
-                                    [isEnabled]="!isSubmitDisabled">
+                                    [isEnabled]="true">
                     </SUIBasicButton>
                 </StackLayout>
             </GridLayout>
@@ -72,3 +74,4 @@
         </Label>
     </GridLayout>
 </ScrollView>
+<ActivityIndicator [busy]="loading" color="#9158F3" width="100" height="100"></ActivityIndicator>

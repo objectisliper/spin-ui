@@ -45,3 +45,17 @@ export const isJwtExpired = createSelector(
     selectRootState,
     (state: State) => !!state.sharedSettings.jwtToken ?
         new Date().getTime() / 1000 > jwtDecode(state.sharedSettings.jwtToken).exp : true);
+
+export const selectJWTToken = createSelector(
+    selectRootState,
+    (state: State) => state.sharedSettings.jwtToken);
+
+export const selectUserName = createSelector(
+    selectRootState,
+    (state: State) => state.userData.name
+);
+
+export const selectUserEmail = createSelector(
+    selectRootState,
+    (state: State) => state.userData.email
+);

@@ -64,7 +64,7 @@ export class UserPhotoComponent implements OnInit, AfterViewInit {
                 if(selection.length > 0) {
                     ImageSource.fromAsset(selection[0]).then(asset => {
                         if (asset.width != asset.height) {
-                            new ImageCropper().show(asset, {width: 280, height: 280}).then(args => {
+                            new ImageCropper().show(asset, {width: 1000, height: 1000}).then(args => {
                                 this._store.dispatch(setProfileImage({payload: {profileImage: args.image}}))
                             })
                         } else {

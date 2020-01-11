@@ -20,7 +20,7 @@ const rootSharedSettingsReducer = createReducer(
     on(SharedSettingsActions.toggleSideDrawerOpen,
         (state) => ({...state, isSideDrawerOpen: !state.isSideDrawerOpen})),
     on(SharedSettingsActions.setJWTToken,
-        (state, {payload}) => ({...state, ...payload, isSideDrawerOpen: (() => {console.log('fucked work'); return false})()})),
+        (state, {payload}) => ({...state, ...payload})),
 );
 
 export function reducer(state: State | undefined, action: Action) {

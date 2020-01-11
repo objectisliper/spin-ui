@@ -4,7 +4,9 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Store} from "@ngrx/store";
 import {setUserRegistrationData} from "~/app/root-store/actions/root.user.action";
 import { RouterExtensions } from '@nativescript/angular/router';
-import {selectUserRegistrationData} from "~/app/root-store";
+import {isJwtExpired, selectUserRegistrationData} from "~/app/root-store";
+import {loginUser} from "~/app/modules/auth/store/actions/auth.actions";
+import {skipWhile, take} from "rxjs/internal/operators";
 
 @Component({
   selector: 'ns-login',
@@ -17,10 +19,11 @@ export class LoginComponent implements OnInit {
 
     isSubmitted: boolean = false;
 
+    loading: boolean = false;
+
     registrationForm = new FormGroup({
-        email: new FormControl('', [Validators.required, Validators.email]),
-        password: new FormControl('', [Validators.required,
-            Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])/), Validators.minLength(8)]),
+        email: new FormControl('', [Validators.required]),
+        password: new FormControl('', [Validators.required]),
     });
 
     constructor(private _store: Store<indexReducer.State>, private _router: RouterExtensions) {
@@ -45,7 +48,13 @@ export class LoginComponent implements OnInit {
     submitForm(): void {
         this.isSubmitted = true;
         if (this.registrationForm.valid) {
-            this._router.navigate(['auth', 'user-photo'])
+            this.loading = true;
+            this._store.dispatch(loginUser({payload: this.registrationForm.value}));
+            this._store.select(isJwtExpired).pipe(skipWhile(result => result), take(1))
+                .subscribe(() => {
+                    this.loading = false;
+                    this._router.navigate(['add-test'], {clearHistory: true})
+            })
         }
     }
 }
