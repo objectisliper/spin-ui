@@ -21,6 +21,8 @@ const rootSharedSettingsReducer = createReducer(
         (state) => ({...state, isSideDrawerOpen: !state.isSideDrawerOpen})),
     on(SharedSettingsActions.setJWTToken,
         (state, {payload}) => ({...state, ...payload})),
+    on(SharedSettingsActions.clearJWTToken,
+        (state) => ({...state, jwtToken: undefined})),
 );
 
 export function reducer(state: State | undefined, action: Action) {

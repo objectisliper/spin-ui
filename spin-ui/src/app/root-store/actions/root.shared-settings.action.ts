@@ -14,6 +14,10 @@ export const setJWTToken = createAction(
     props<{payload: {jwtToken: string}}>()
 );
 
+export const clearJWTToken = createAction(
+    '[ROOT] CLEAR_JWT_TOKEN'
+);
+
 const all = union({
     setIsSideDrawerOpen,
     toggleSideDrawerOpen,
