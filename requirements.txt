@@ -8,7 +8,7 @@ fernet==1.0.1
 mysql-connector-python==8.0.18
 mysqlclient==1.4.6
 pkg-resources==0.0.0
-protobuf==3.11.1
+protobuf==3.15.0
 pyaes==1.6.1
 pycrypto==2.6.1
 PyQRCode==1.2.1
