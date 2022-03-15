@@ -31,7 +31,7 @@
     "@types/jest": "^24.0.25",
     "@types/node": "^13.1.0",
     "jwt-decode": "^2.2.0",
-    "lodash-es": "^4.17.15",
+    "lodash-es": "^4.17.21",
     "mdb-angular-mobile": "file:mdb-angular-mobile-8.0.0.tgz",
     "nativescript-angular": "rc",
     "nativescript-imagecropper": "file:nativescript-imagecropper-2.0.0.tgz",
